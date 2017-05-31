@@ -25,19 +25,22 @@
 //   n: 1,
 // }
 
-var str = "Hello";
+var str = "lighthouse in the house";
+// countLetters("lighthouse in the house")
 
 
 function countLetters(str) {
+  // remove spaces between strings
+  var noSpaces = str.split(" ").join("").toLowerCase();
   // declare object variable to return
   var characterCounter = {};
 // get each character in string
-  for(var i = 0; i < str.length; i++ ) {
-    var char = str.charAt(i);
+  for(var i = 0; i < noSpaces.length; i++ ) {
+    var char = noSpaces.charAt(i);
     // start counting charater occurence
     var count = 0;
-    for(var j = 0; j < str.length; j++) {
-      var nextChar = str.charAt(j);
+    for(var j = 0; j < noSpaces.length; j++) {
+      var nextChar = noSpaces.charAt(j);
       if(char === nextChar) {
         count++;
       }
