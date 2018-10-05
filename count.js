@@ -25,37 +25,21 @@
 //   n: 1,
 // }
 
-var str = "lighthouse in the house";
-// countLetters("lighthouse in the house")
+const myArgs = process.argv.slice(2).join(' ');
 
-
-function countLetters(str) {
-  // remove spaces between strings
-  var noSpaces = str.split(" ").join("").toLowerCase();
-  // declare object variable to return
-  var characterCounter = {};
-// get each character in string
-  for(var i = 0; i < noSpaces.length; i++ ) {
-    var char = noSpaces.charAt(i);
-    // start counting charater occurence
-    var count = 0;
-    for(var j = 0; j < noSpaces.length; j++) {
-      var nextChar = noSpaces.charAt(j);
-      if(char === nextChar) {
-        count++;
+function characterCount(string) {
+  let output = {};
+  for (let i = 0; i < myArgs.length; i++) {
+    let key = myArgs[i];
+    if (myArgs[i] !== ' ') {
+      if (output.hasOwnProperty(myArgs[i])) {
+        output[key]++;
+      } else {
+        output[key] = 1;
       }
-      characterCounter[char] = count;
     }
   }
-  return characterCounter;
+  return output;
 }
 
-console.log(countLetters(str));
-
-
-
-
-
-
-
-
+console.log(characterCount(myArgs));
